@@ -1,26 +1,77 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Global custom properties for theming */
+@theme {
+  /* Colors */
+  --color-primary-100: #FFE8F0;
+  --color-primary: #EE2B69;
+
+  --color-secondary: #FBE843;
+
+  --color-black-100: #333333;
+  --color-black-200: #141413;
+  --color-black-300: #7D8087;
+  --color-black: #000000;
+
+  --color-white-100: #F7F7F7;
+  --color-white: #FFFFFF;
+
+  /* Border Radius */
+  --radius: 0.5rem; /* Your base radius value */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+
+  /* Box Shadows */
+  --shadow-100: 2px 2px 0px 0px rgb(0, 0, 0);
+  --shadow-200: 2px 2px 0px 2px rgb(0, 0, 0);
+  --shadow-300: 2px 2px 0px 2px rgb(238, 43, 105);
+
+  /* Screens */
+  --breakpoint-xs: 475px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+/* ==============================
+JSM Code Below
+==================================*/
+
+.heading{
+  @apply uppercase bg-black px-6 py-3 font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.sub-heading {
+  @apply font-medium text-[20px] text-white max-w-2xl text-center break-words;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* HOME PAGE */
+.pattern {
+  background-image: linear-gradient(
+          to right,
+          transparent 49.5%,
+          rgba(251, 232, 67, 0.2) 49.5%,
+          rgba(251, 232, 67, 0.6) 50.5%,
+          transparent 50.5%
+  );
+  background-size: 5% 100%;
+  background-position: center;
+  background-repeat: repeat-x;
+}
+
+.pink_container {
+  @apply w-full bg-primary min-h-[530px] flex justify-center items-center flex-col py-10 px-6;
+}
+
+/* SEARCH */
+.search-form {
+  @apply max-w-3xl w-full min-h-[80px] bg-white border-[5px] border-black rounded-[80px] text-[24px] mt-8 px-5 flex flex-row items-center gap-5;
+}
+
+.search-btn {
+  @apply size-[50px] rounded-full bg-black flex justify-center items-center;
+}
+
+.search-input {
+  @apply flex-1 font-bold placeholder:font-semibold placeholder:text-black-100 w-full h-auto outline-none;
 }
